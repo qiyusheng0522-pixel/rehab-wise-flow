@@ -545,6 +545,12 @@ const TASKS: CheckinTask[] = [
   { id: "vas", title: "记录今日疼痛 VAS", sub: "每日一次，用于团队会议", icon: Activity, type: "vital", target: "1 次" },
   { id: "med", title: "阿托伐他汀 20mg", sub: "20:00 · 睡前服用", icon: Heart, type: "med", target: "1 次" },
   { id: "diet", title: "晚餐饮食打卡", sub: "拍照识别 · 一键完成", icon: Camera, type: "diet", target: "1 次" },
+  { id: "shoulder", title: "肩关节钟摆运动 · 2 组 × 15 次", sub: "上午 / 下午各一组，动作缓慢", icon: Dumbbell, type: "train", target: "30 次" },
+  { id: "walk", title: "室内步行训练 10 分钟", sub: "助行器辅助 · 家属陪同", icon: Activity, type: "train", target: "10 分钟" },
+  { id: "hand", title: "手功能精细训练 · 抓握夹豆", sub: "OT 王治疗师推送", icon: Brain, type: "train", target: "3 组" },
+  { id: "bp", title: "记录晨起血压 / 心率", sub: "起床后静坐 5 分钟再测量", icon: Heart, type: "vital", target: "1 次" },
+  { id: "med2", title: "阿司匹林肠溶片 100mg", sub: "08:00 · 早餐后服用", icon: Heart, type: "med", target: "1 次" },
+  { id: "water", title: "每日饮水 1500ml 打卡", sub: "少量多次，避免呛咳", icon: Camera, type: "diet", target: "1500 ml" },
 ];
 
 const CheckinPage = ({

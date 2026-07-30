@@ -742,6 +742,10 @@ const DoctorHome = ({
                 <PatientTaskCard onClick={() => onGoPatients("待首次评估")} patient="患者首评" tag={`共 ${FIRST_ASSESS_COUNT} 位患者`} task="进入患者列表完成首次评估" urgency="high" time="今日" />
                 <PatientTaskCard onClick={onGoRx} patient="待确认医嘱" tag="共 4 条" task="审核 AI 生成 / 治疗师上报的医嘱" urgency="medium" time="今日" />
                 <PatientTaskCard onClick={onGoChat} patient="待回复消息" tag={`共 ${PATIENT_UNREAD} 条`} task="患者沟通 + 团队会议消息待回复" urgency="low" time="今日" />
+                <PatientTaskCard onClick={() => onGoPlan("goal")} patient="康复目标确认" tag="共 3 位患者" task="确认 AI 生成的短期 / 长期康复目标" urgency="medium" time="10:30" />
+                <PatientTaskCard onClick={() => onGoPlan("plan")} patient="康复方案审核" tag="共 5 位患者" task="审核 AI 康复方案与 PT/OT/ST 分工" urgency="medium" time="11:00" />
+                <PatientTaskCard onClick={onGoDischarge} patient="出院评估" tag="共 2 位患者" task="出院前评估 + 二级康复方案生成" urgency="high" time="14:00" />
+                <PatientTaskCard onClick={() => onGoPatients()} patient="团队会议纪要" tag="脑卒中组" task="MDT 会议纪要待确认并同步治疗组" urgency="low" time="16:00" />
               </>
             )}
           </div>

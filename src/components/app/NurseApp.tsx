@@ -94,6 +94,11 @@ const QUEUES: Record<QueueKey, TodoItem[]> = {
   confirmAssess: [
     { id: "ca1", patient: "305 王秀英", meta: "髋关节置换术后", detail: "护理首评 · 一般情况 / ADL / 风险评估", urgency: "high" },
     { id: "ca2", patient: "311 周建华", meta: "脑梗死恢复期", detail: "护理首评 · 跌倒 / 压疮 / VTE / 营养", urgency: "medium" },
+    { id: "ca3", patient: "303 张建国", meta: "脑卒中后偏瘫", detail: "护理首评 · 吞咽筛查 / 二便管理", urgency: "high" },
+    { id: "ca4", patient: "310 陈丽华", meta: "吞咽障碍", detail: "护理首评 · VVST 洼田饮水试验复核", urgency: "medium" },
+    { id: "ca5", patient: "315 孙德强", meta: "急性缺血性脑卒中", detail: "护理首评 · 生命体征 / 意识状态", urgency: "high" },
+    { id: "ca6", patient: "316 吴丽君", meta: "脑出血急性期", detail: "护理首评 · 压疮风险 Braden 评分", urgency: "medium" },
+    { id: "ca7", patient: "307 李 强", meta: "脊髓损伤", detail: "护理首评 · 导尿管护理 / 皮肤评估", urgency: "low" },
   ],
 };
 
@@ -117,6 +122,12 @@ export const FOLLOW_UPS: FollowUpPatient[] = [
   { id: "f3", name: "胡国玉", age: 25, sex: "女", meta: "术后第 6 天", postOpDays: 6, diagnosis: "右膝 PCL 重建", status: "done", conclusion: "恢复良好，居家维护现状" },
   { id: "f4", name: "何宗兰", age: 34, sex: "女", meta: "术后第 11 天 · 肩外展 90°，恢复良好", postOpDays: 11, diagnosis: "左肩关节镜肩袖修补", status: "done", conclusion: "肩外展 90°，恢复良好，居家训练" },
   { id: "f5", name: "范芳进", age: 22, sex: "女", meta: "术后第 12 天 · 屈膝受限，需加强康复", postOpDays: 12, diagnosis: "右髌骨内侧支持带修补", status: "needRevisit", conclusion: "屈膝受限，建议到省人民康复科复诊" },
+  { id: "f6", name: "赵国栋", age: 58, sex: "男", meta: "术后第 7 天 · 步行耐力不足", postOpDays: 7, diagnosis: "左膝关节置换术后", status: "pending", phone: "139****7812" },
+  { id: "f7", name: "刘敏华", age: 47, sex: "女", meta: "术后第 9 天 · 伤口愈合良好", postOpDays: 9, diagnosis: "腰椎间盘髓核摘除术", status: "done", conclusion: "伤口愈合良好，继续核心稳定训练" },
+  { id: "f8", name: "陈永林", age: 63, sex: "男", meta: "术后第 14 天 · 家属反馈夜间疼痛", postOpDays: 14, diagnosis: "右肩关节镜清理术", status: "needRevisit", conclusion: "夜间静息痛明显，建议门诊复查" },
+  { id: "f9", name: "郑晓雯", age: 28, sex: "女", meta: "术后第 5 天 · 居家训练依从性高", postOpDays: 5, diagnosis: "右踝外侧韧带重建", status: "pending", phone: "137****3096" },
+  { id: "f10", name: "马文彬", age: 41, sex: "男", meta: "术后第 10 天 · 肌力恢复中", postOpDays: 10, diagnosis: "左侧 ACL 重建", status: "pending", phone: "135****6620" },
+  { id: "f11", name: "田秀珍", age: 69, sex: "女", meta: "术后第 13 天 · 需家属协助行走", postOpDays: 13, diagnosis: "股骨颈骨折内固定", status: "done", conclusion: "助行器下可短距离行走，继续居家康复" },
 ];
 
 export const NurseApp = () => {
