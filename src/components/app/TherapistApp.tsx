@@ -102,19 +102,33 @@ const QUEUES: Record<QueueKey, TodoItem[]> = {
   confirmAssess: [
     { id: "ca1", patient: "王秀英 · 女 68", meta: "髋关节置换术后", detail: "AI 评估意见 + 待治疗师补充", urgency: "high" },
     { id: "ca2", patient: "周建华 · 男 72", meta: "脑梗死恢复期", detail: "FMA 38 · 待补充意见", urgency: "medium" },
+    { id: "ca3", patient: "孙德强 · 男 60", meta: "急性缺血性脑卒中", detail: "Brunnstrom Ⅲ 期 · 待确认", urgency: "high" },
+    { id: "ca4", patient: "陈丽华 · 女 65", meta: "吞咽障碍", detail: "洼田饮水 Ⅲ 级 · 待 ST 复核", urgency: "medium" },
+    { id: "ca5", patient: "吴丽君 · 女 55", meta: "脑出血急性期", detail: "MMSE 21 · 待 OT 补充认知评估", urgency: "low" },
   ],
   goal: [
     { id: "go1", patient: "李 强 · 男 42", meta: "脊髓损伤", detail: "医师已确认目标 · 待生成治疗目标", urgency: "high" },
     { id: "go2", patient: "张建国 · 男 56", meta: "脑卒中后偏瘫", detail: "医师已确认 · 待治疗师细化", urgency: "medium" },
+    { id: "go3", patient: "王秀英 · 女 68", meta: "髋关节术后", detail: "短期目标 2 周内独立转移", urgency: "medium" },
+    { id: "go4", patient: "陈丽华 · 女 65", meta: "吞咽障碍", detail: "目标：经口进食糊状食物", urgency: "low" },
+    { id: "go5", patient: "刘伟明 · 男 38", meta: "腰椎术后", detail: "目标：核心稳定 + 步行 500m", urgency: "low" },
   ],
   rx: [
     { id: "rx1", patient: "张建国 · 男 56", meta: "脑卒中后偏瘫", detail: "AI 康复方案 + 处方 · 待确认", urgency: "high" },
     { id: "rx2", patient: "王秀英 · 女 68", meta: "髋关节术后", detail: "新增站立平衡训练", urgency: "medium" },
+    { id: "rx3", patient: "周建华 · 男 72", meta: "脑梗死恢复期", detail: "上肢作业治疗 30min ×5/周", urgency: "medium" },
+    { id: "rx4", patient: "孙德强 · 男 60", meta: "急性缺血性脑卒中", detail: "床旁良肢位摆放 + 被动关节活动", urgency: "high" },
+    { id: "rx5", patient: "陈丽华 · 女 65", meta: "吞咽障碍", detail: "冰刺激 + 舌肌训练 20min", urgency: "low" },
   ],
   exec: [
     { id: "e1", patient: "李 强 · 男 42", meta: "OT · ADL 训练", detail: "厨房活动训练 25min · B-201", time: "14:00", urgency: "high" },
     { id: "e2", patient: "陈丽华 · 女 65", meta: "ST · 吞咽训练", detail: "B-205 · 30 min", time: "15:30", urgency: "medium" },
     { id: "e3", patient: "刘伟明 · 男 38", meta: "PT · 平衡训练", detail: "A-301 · 30 min", time: "16:30", urgency: "medium" },
+    { id: "e4", patient: "张建国 · 男 56", meta: "PT · 步态训练", detail: "减重步行训练 30min · A-301", time: "09:00", urgency: "high" },
+    { id: "e5", patient: "王秀英 · 女 68", meta: "PT · 关节活动度", detail: "髋屈曲被动活动 20min · A-303", time: "10:30", urgency: "medium" },
+    { id: "e6", patient: "周建华 · 男 72", meta: "OT · 上肢功能", detail: "抓握与够取训练 25min · B-202", time: "11:00", urgency: "medium" },
+    { id: "e7", patient: "孙德强 · 男 60", meta: "PT · 床旁康复", detail: "良肢位 + 被动活动 20min · 床旁", time: "13:30", urgency: "high" },
+    { id: "e8", patient: "吴丽君 · 女 55", meta: "OT · 认知训练", detail: "注意力与记忆训练 25min · B-203", time: "16:00", urgency: "low" },
   ],
 };
 

@@ -34,6 +34,14 @@ const EDU_LIB: EduMaterial[] = [
   { id: "e4", title: "髋关节置换术后家庭康复操", type: "视频", tag: "骨科", duration: "8 分钟", sent: 52 },
   { id: "e5", title: "吞咽障碍家庭训练 · 进食安全要点", type: "音频", tag: "卒中", duration: "10 分钟", sent: 40 },
   { id: "e6", title: "COPD 呼吸训练 · 缩唇与腹式呼吸", type: "视频", tag: "心肺", duration: "7 分钟", sent: 33 },
+  { id: "e7", title: "膝关节置换术后 6 周家庭训练计划", type: "视频", tag: "骨科", duration: "9 分钟", sent: 61 },
+  { id: "e8", title: "居家防跌倒环境改造清单", type: "图文", tag: "老年", duration: "6 分钟阅读", sent: 88 },
+  { id: "e9", title: "偏瘫患者转移与助行器使用要点", type: "视频", tag: "卒中", duration: "5 分钟", sent: 57 },
+  { id: "e10", title: "腰椎术后核心稳定训练入门", type: "视频", tag: "骨科", duration: "11 分钟", sent: 45 },
+  { id: "e11", title: "康复期焦虑情绪自我调节", type: "音频", tag: "心理", duration: "12 分钟", sent: 29 },
+  { id: "e12", title: "居家血压监测与记录规范", type: "图文", tag: "慢病", duration: "3 分钟阅读", sent: 103 },
+  { id: "e13", title: "失语症家庭沟通训练技巧", type: "音频", tag: "卒中", duration: "8 分钟", sent: 36 },
+  { id: "e14", title: "糖尿病患者运动处方与低血糖预防", type: "图文", tag: "糖尿病", duration: "7 分钟阅读", sent: 68 },
 ];
 
 export const EducationModule = () => {
