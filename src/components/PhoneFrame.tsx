@@ -20,7 +20,7 @@ export const PhoneFrame = ({ children, label, time = "9:41" }: PhoneFrameProps) 
 
         <div
           className="relative bg-slate-900 rounded-[55px] p-[14px] shadow-phone"
-          style={{ width: 380, height: 780 }}
+          style={{ width: 380, height: 1170 }}
         >
           {/* Screen */}
           <div className="relative w-full h-full bg-background rounded-[42px] overflow-hidden">
