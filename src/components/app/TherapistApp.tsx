@@ -1516,6 +1516,10 @@ const MY_SCHEDULE: { time: string; patient: string; bed: string; type: "PT" | "O
   { time: "14:00", patient: "李 强", bed: "307", type: "OT", room: "B-201", duration: "45 min" },
   { time: "15:30", patient: "陈丽华", bed: "310", type: "ST", room: "B-205", duration: "30 min" },
   { time: "16:30", patient: "刘伟明", bed: "A-301", type: "PT", room: "A-301", duration: "45 min" },
+  { time: "08:00", patient: "孙德强", bed: "315", type: "PT", room: "床旁", duration: "20 min" },
+  { time: "11:15", patient: "周建华", bed: "311", type: "OT", room: "B-202", duration: "30 min" },
+  { time: "13:00", patient: "吴丽君", bed: "316", type: "OT", room: "B-203", duration: "25 min" },
+  { time: "17:30", patient: "陈丽华", bed: "310", type: "ST", room: "B-205", duration: "20 min" },
 ];
 
 const TEAM_SCHEDULE: { therapist: string; cert: string; items: { time: string; patient: string; bed: string; type: "PT" | "OT" | "ST"; room: string }[] }[] = [
@@ -1543,6 +1547,21 @@ const TEAM_SCHEDULE: { therapist: string; cert: string; items: { time: string; p
     therapist: "李建华", cert: "PT · 4 年", items: [
       { time: "09:00", patient: "周建华", bed: "311", type: "PT", room: "A-302" },
       { time: "13:30", patient: "刘伟明", bed: "A-301", type: "PT", room: "A-302" },
+      { time: "16:00", patient: "孙德强", bed: "315", type: "PT", room: "床旁" },
+    ],
+  },
+  {
+    therapist: "周敏", cert: "OT · 7 年", items: [
+      { time: "08:30", patient: "吴丽君", bed: "316", type: "OT", room: "B-203" },
+      { time: "10:45", patient: "王秀英", bed: "305", type: "OT", room: "B-203" },
+      { time: "15:30", patient: "周建华", bed: "311", type: "OT", room: "B-202" },
+    ],
+  },
+  {
+    therapist: "高振宇", cert: "PT · 10 年", items: [
+      { time: "09:15", patient: "李 强", bed: "307", type: "PT", room: "A-304" },
+      { time: "11:30", patient: "刘伟明", bed: "A-301", type: "PT", room: "A-304" },
+      { time: "14:45", patient: "张建国", bed: "303", type: "PT", room: "A-301" },
     ],
   },
 ];
