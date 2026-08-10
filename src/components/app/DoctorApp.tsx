@@ -1680,9 +1680,6 @@ const AssessSheet = ({ patient, onLaunchMeeting }: { patient?: string; onLaunchM
               </div>
             )}
             <div className="flex gap-1.5 pt-1">
-              <button onClick={() => setViewing(s)} className="text-[11px] px-2.5 py-1 rounded-lg border border-border text-foreground/70">
-                {s.status === "待填写" ? "继续填写" : "查看详情"}
-              </button>
               <button
                 onClick={() => kind === "doc" ? reassessIn(docScales, setDocScales, s.key) : reassessIn(extraScales, setExtraScales, s.key)}
                 className="text-[11px] px-2.5 py-1 rounded-lg border border-primary/40 text-primary flex items-center gap-1"
