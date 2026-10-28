@@ -136,6 +136,7 @@ export const PatientApp = () => {
 /* ============================== 首页 ============================== */
 
 const HomeScreen = ({ onAI, onScale, onPlan }: { onAI: () => void; onScale: () => void; onPlan: () => void }) => {
+  const __st = useJourneyStage();
   const [todoIdx, setTodoIdx] = useState(0);
   const [doneMap, setDoneMap] = useState<Record<number, boolean>>({ 0: true });
   const current = TODOS[todoIdx];
