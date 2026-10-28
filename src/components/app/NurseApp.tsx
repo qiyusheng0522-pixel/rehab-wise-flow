@@ -1902,3 +1902,14 @@ export const ManualCallSheet = ({
     </div>
   );
 };
+
+/* ===== 演示旅程：孙德强 ===== */
+import { registerJourney as __regJourney, replaceSun as __rep } from "@/lib/demoJourney";
+__regJourney((s) => {
+  __rep(QUEUES.confirmAssess, (x) => x.patient.includes("孙德强"), s === 0 ? [{ id: "ca5", patient: "315 孙德强", meta: "急性缺血性脑卒中", detail: "护理首评 · 生命体征 / 吞咽 / 跌倒风险", urgency: "high" }] : []);
+  const f: FollowUpPatient[] =
+    s === 5 ? [{ id: "fsun", name: "孙德强", age: 60, sex: "男", meta: "出院第 7 天 · 四脚拐步行 120m", postOpDays: 7, diagnosis: "脑卒中恢复期 · 右侧偏瘫", status: "pending", phone: "139****3150" } as FollowUpPatient]
+    : s === 6 ? [{ id: "fsun", name: "孙德强", age: 60, sex: "男", meta: "出院第 19 天 · 居家训练依从性高", postOpDays: 19, diagnosis: "脑卒中恢复期 · 右侧偏瘫", status: "done", conclusion: "MBI 85，独立步行 100m，居家维持训练" } as FollowUpPatient]
+    : [];
+  __rep(FOLLOW_UPS, (x) => x.name === "孙德强", f);
+});

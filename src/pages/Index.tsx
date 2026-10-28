@@ -7,6 +7,7 @@ import { CommunityApp } from "@/components/app/CommunityApp";
 import { PatientApp } from "@/components/app/PatientApp";
 import { Sparkles, Stethoscope, Activity, HeartPulse, Home, ArrowLeft, ArrowRight, CheckCircle2, User } from "lucide-react";
 import { WorkflowSection } from "@/components/WorkflowSection";
+import { JOURNEY_STAGES, setJourneyStage, useJourneyStage } from "@/lib/demoJourney";
 
 type Role = "landing" | "doctor" | "therapist" | "nurse" | "community" | "patient";
 
@@ -70,6 +71,7 @@ const roleMeta = {
 
 const Index = () => {
   const [role, setRole] = useState<Role>("landing");
+  const stage = useJourneyStage();
 
   if (role !== "landing") {
     const meta = roleMeta[role];
@@ -115,20 +117,37 @@ const Index = () => {
               </div>
 
               <div className="mt-10 p-5 rounded-2xl border border-ai/20 bg-ai-soft">
-                <div className="flex items-center gap-2 mb-2">
+                <div className="flex items-center gap-2 mb-1">
                   <Sparkles className="w-4 h-4 text-ai" />
-                  <span className="text-sm font-semibold text-foreground">业务流程接入提示</span>
+                  <span className="text-sm font-semibold text-foreground">演示患者 · 孙德强（男 60 · 315 床 · 脑卒中右侧偏瘫）</span>
                 </div>
-                <p className="text-xs text-foreground/70 leading-relaxed">
-                  你后续提供完整交互业务流程后，可在此 APP 内继续扩展页面联动、状态流转和跨角色协同。
-                </p>
+                <p className="text-xs text-foreground/70 mb-4">切换进度后，所有端中孙德强的状态与待办同步变化。</p>
+                <div className="space-y-1.5">
+                  {JOURNEY_STAGES.map((st, i) => {
+                    const active = i === stage;
+                    const done = i < stage;
+                    return (
+                      <button
+                        key={st.key}
+                        onClick={() => setJourneyStage(i)}
+                        className={`w-full flex items-center gap-3 text-left rounded-xl px-3 py-2 transition-colors ${active ? "bg-card shadow-card" : "hover:bg-card/60"}`}
+                      >
+                        <span className={`w-6 h-6 shrink-0 rounded-full flex items-center justify-center text-[11px] font-bold ${active ? "gradient-primary text-primary-foreground" : done ? "bg-success text-primary-foreground" : "bg-muted text-muted-foreground"}`}>{i + 1}</span>
+                        <span className="flex-1 min-w-0">
+                          <span className={`block text-sm ${active ? "font-semibold text-foreground" : "text-foreground/80"}`}>{st.label} <span className="text-[11px] text-muted-foreground font-normal">· 第 {st.day} 天</span></span>
+                          {active && <span className="block text-[11px] text-muted-foreground mt-0.5">{st.desc}</span>}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
             </div>
 
             {/* Right: phone */}
             <div className="flex justify-center lg:justify-end">
               <PhoneFrame label={meta.label}>
-                <RoleApp />
+                <RoleApp key={stage} />
               </PhoneFrame>
             </div>
           </div>
