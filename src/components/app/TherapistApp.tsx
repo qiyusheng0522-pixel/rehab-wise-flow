@@ -1710,7 +1710,7 @@ const ScheduleView = ({ role }: { role: "therapist" | "lead" }) => {
 /* ===== 演示旅程：孙德强 ===== */
 import { registerJourney as __regJourney, replaceSun as __rep } from "@/lib/demoJourney";
 __regJourney((s) => {
-  const isSun = (x: { patient: string }) => x.patient.startsWith("孙德强");
+  const isSun = (x: any) => x.patient.startsWith("孙德强");
   const P = "孙德强 · 男 60";
   __rep(QUEUES.confirmAssess, isSun, s === 0 ? [{ id: "ca3", patient: P, meta: "急性缺血性脑卒中", detail: "医师首评 Brunnstrom Ⅲ 期 · 待治疗师确认", urgency: "high" }] : []);
   __rep(QUEUES.goal, isSun, s === 1 ? [{ id: "go0", patient: P, meta: "脑卒中右侧偏瘫", detail: "医师已确认 · 4 周助行器步行 50m · 待细化", urgency: "high" }] : []);
