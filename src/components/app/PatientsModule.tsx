@@ -1844,3 +1844,31 @@ export const FirstNoteSheet = ({ patient, accent }: { patient: Patient | null; a
     </div>
   );
 };
+
+/* ===== 演示旅程：孙德强 按阶段同步 ===== */
+import { registerJourney as __regJourney } from "@/lib/demoJourney";
+__regJourney((s) => {
+  const p = PATIENTS.find((x) => x.id === "p0");
+  if (!p) return;
+  const base = { needFirstAssess: false, needPlanConfirm: false, needRxConfirm: false, isNew: false };
+  const N = (author: string, time: string, text: string) => ({ author, time, text });
+  const notesAll = [
+    N("李医师", "入院第 1 天", "首评：NIHSS 6 · Brunnstrom 上肢Ⅲ/手Ⅱ/下肢Ⅲ · MBI 35，建议早期床旁康复。"),
+    N("王治疗师", "入院第 2 天", "确认首评，FMA 上肢 28 / 下肢 16，Berg 18，坐位平衡 2 级。"),
+    N("赵护士", "入院第 2 天", "洼田饮水 Ⅱ 级，跌倒高风险（Morse 55），已落实防护。"),
+    N("李医师", "入院第 3 天", "团队会议确认 4 周目标：助行器下步行 50m，MBI ≥ 60。"),
+    N("王治疗师", "入院第 14 天", "FMA 上肢 28→40，Berg 18→36，可助行器步行 60m。"),
+    N("李医师", "入院第 26 天", "MBI 75，满足出院条件，已生成二级方案转介社区。"),
+    N("社区医生", "出院第 7 天", "上门随访：居家步行 120m（四脚拐），依从性良好。"),
+  ];
+  const cfg = [
+    { admitDays: 0, status: "新患者", meta: "男 60 · 急性缺血性脑卒中 · 今日入院", needFirstAssess: true, needPlanConfirm: true, needRxConfirm: true, isNew: true, n: 0 },
+    { admitDays: 2, status: "康复中", meta: "男 60 · 脑卒中右侧偏瘫 · 入院第 2 天 · 待定目标", needPlanConfirm: true, needRxConfirm: true, n: 3 },
+    { admitDays: 3, status: "康复中", meta: "男 60 · 脑卒中右侧偏瘫 · 入院第 3 天 · 方案待确认", needPlanConfirm: true, needRxConfirm: true, n: 4 },
+    { admitDays: 14, status: "康复中", meta: "男 60 · 脑卒中右侧偏瘫 · 入院第 14 天 · 训练执行中", n: 5 },
+    { admitDays: 26, status: "待出院", meta: "男 60 · 脑卒中恢复期 · 入院第 26 天 · MBI 75 待出院", n: 6 },
+    { admitDays: 26, status: "已出院", meta: "男 60 · 脑卒中恢复期 · 出院第 7 天 · 社区康复", n: 7 },
+    { admitDays: 26, status: "已出院", meta: "男 60 · 脑卒中恢复期 · 出院第 19 天 · 居家康复", n: 7 },
+  ][s] as any;
+  Object.assign(p, base, cfg, { notes: notesAll.slice(0, cfg.n).reverse() });
+});

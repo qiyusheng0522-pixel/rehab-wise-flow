@@ -253,3 +253,13 @@ export const AIRxModule = ({
     </div>
   );
 };
+
+/* ===== 演示旅程：孙德强 ===== */
+import { registerJourney as __regJourney, replaceSun as __rep } from "@/lib/demoJourney";
+__regJourney((s) => {
+  const isSun = (x: { patientId: string }) => x.patientId === "p0";
+  __rep(REHAB_PLAN_BUCKETS.goal, isSun, s === 1 ? [{ patientId: "p0", status: "AI 已生成 4 周目标", detail: "助行器步行 50m / MBI 35→60 · 待医师确认" }] : []);
+  __rep(REHAB_PLAN_BUCKETS.plan, isSun, s === 2 ? [{ patientId: "p0", status: "AI 方案 V1 · 待团队会议", detail: "PT 良肢位→坐站转移→步行 · OT 上肢 · ST 吞咽" }] : []);
+  __rep(REHAB_PLAN_BUCKETS.airx, isSun, s === 2 ? [{ patientId: "p0", status: "AI 待医师确认", detail: "PT 5/周 + OT 5/周 + ST 3/周 · 30min" }] : []);
+  __rep(REHAB_PLAN_BUCKETS.discharge, isSun, s === 4 ? [{ patientId: "p0", status: "AI 二级方案已生成", detail: "MBI 75 · Berg 42 · 转社区卫生服务中心" }] : []);
+});
