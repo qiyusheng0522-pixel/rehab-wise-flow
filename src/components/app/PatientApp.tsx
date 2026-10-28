@@ -34,6 +34,7 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import { toast } from "sonner";
+import { JOURNEY_STAGES, useJourneyStage } from "@/lib/demoJourney";
 import rehabGait from "@/assets/rehab-gait.jpg";
 import rehabHand from "@/assets/rehab-hand.jpg";
 
@@ -200,11 +201,11 @@ const HomeScreen = ({ onAI, onScale, onPlan }: { onAI: () => void; onScale: () =
                 <div className="flex items-center gap-1.5">
                   <Sparkles className="size-3 text-white/90" />
                   <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/85">
-                    AI 康复管家 · 康复第 26 天
+                    AI 康复管家 · {JOURNEY_STAGES[__st].label} · 第 {JOURNEY_STAGES[__st].day} 天
                   </p>
                 </div>
                 <p className="mt-2 text-[20px] font-bold leading-snug">
-                  王先生，今日还有 {remaining} 项康复任务
+                  孙先生，今日还有 {remaining} 项康复任务
                 </p>
                 <p className="mt-1.5 text-[12px] text-white/90 leading-relaxed">
                   PT 步行 · OT 手功能 · 用药 · 疼痛自评
@@ -327,7 +328,7 @@ const HomeScreen = ({ onAI, onScale, onPlan }: { onAI: () => void; onScale: () =
                 <div className="min-w-0">
                   <div className="text-[12px] font-bold leading-tight">咨询我的康复团队？</div>
                   <div className="text-[10px] text-muted-foreground mt-0.5 truncate">
-                    张主任（康复医师）· 李治疗师（PT）· 陈护士
+                    {__st >= 5 ? "社区医生（全科康复）· 李志远主任 远程指导" : "李志远主任（康复医师）· 王雅琴（PT）· 赵静怡护士"}
                   </div>
                 </div>
               </div>
@@ -444,7 +445,7 @@ const HomeScreen = ({ onAI, onScale, onPlan }: { onAI: () => void; onScale: () =
             <AcademyItem
               img={rehabGait}
               title="偏瘫步行训练：重心转移与患侧负重要点"
-              meta="李治疗师 · 5 分钟"
+              meta="王治疗师 · 5 分钟"
               stat="8.6k 学习"
               points={50}
               tag="必看"
@@ -462,7 +463,7 @@ const HomeScreen = ({ onAI, onScale, onPlan }: { onAI: () => void; onScale: () =
             <AcademyItem
               img={rehabGait}
               title="本周四 19:30 · 卒中后康复答疑直播"
-              meta="张主任 · 直播预约"
+              meta="李主任 · 直播预约"
               stat="216 已预约"
               points={80}
               tag="预约"
@@ -506,7 +507,7 @@ const CareScreen = ({ onPlan }: { onPlan: () => void }) => (
       <div className="relative">
         <div className="text-[11px] opacity-85">康复方案 · 第 4 周（共 8 周）</div>
         <div className="text-[19px] font-bold mt-1">脑卒中后偏瘫综合康复方案</div>
-        <div className="text-[11px] opacity-85 mt-1">张主任 签发 · 2026-08-10 更新 · V3</div>
+        <div className="text-[11px] opacity-85 mt-1">李主任 签发 · 2026-08-10 更新 · V3</div>
         <div className="mt-4 rounded-2xl bg-white/15 backdrop-blur p-3 ring-1 ring-white/20">
           <div className="flex items-center justify-between text-[11px] mb-1.5">
             <span>阶段目标完成度</span>
@@ -725,7 +726,7 @@ const AISheetBody = () => (
       </p>
     </div>
     {[
-      { q: "训练后肩膀疼怎么办", a: "先暂停患侧上肢主动抬举，改为无痛范围内的被动活动；疼痛 > 4 分请联系李治疗师调整强度。" },
+      { q: "训练后肩膀疼怎么办", a: "先暂停患侧上肢主动抬举，改为无痛范围内的被动活动；疼痛 > 4 分请联系王治疗师调整强度。" },
       { q: "今天能加量吗", a: "本周完成率 86%、疼痛稳定，建议下周起步行组数由 3 组增至 4 组，本周先保持。" },
       { q: "居家怎么防跌倒", a: "移除地面杂物与门槛、卫生间加装扶手与防滑垫、夜间留一盏地灯，起身遵循「起床三部曲」。" },
     ].map((m) => (
@@ -810,7 +811,7 @@ const PlanSheetBody = () => (
   <div className="p-4 space-y-3">
     <div className="rounded-2xl bg-warning-soft p-4">
       <div className="text-[13px] font-bold text-role-physio">脑卒中后偏瘫综合康复方案 V3</div>
-      <div className="text-[11.5px] text-foreground/70 mt-1">张主任 签发 · 康复第 4 周 · 每周三团队会议复核</div>
+      <div className="text-[11.5px] text-foreground/70 mt-1">李主任 签发 · 康复第 4 周 · 每周三团队会议复核</div>
     </div>
     <PlanRow icon={<Footprints className="size-4" />} title="PT 运动治疗" detail="步行 / 平衡 / 下肢肌力" freq="5 次/周 · 45min" tone="primary" />
     <PlanRow icon={<Hand className="size-4" />} title="OT 作业治疗" detail="手功能 + ADL 训练" freq="5 次/周 · 30min" tone="success" />
